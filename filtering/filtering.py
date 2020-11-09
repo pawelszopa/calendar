@@ -1,6 +1,62 @@
 from datetime import datetime
 
+class Filter:
+    @staticmethod
+    def filter(fn):
+        def inner(obj):
 
+            filtered_tasks = []
+
+            conditions = obj.filter_config.keys()
+
+            for event in fn(obj):
+                counter = 0
+
+                for condition in conditions:
+                    min_val = obj.filter_config[condition]['min']
+                    max_val = obj.filter_config[condition]['max']
+
+                    value = getattr(event, condition)
+                    min_val = value if min_val is None else min_val
+                    max_val = value if max_val is None else max_val
+
+                    if min_val <= value <= max_val:
+                        counter += 1
+
+                if counter == len(conditions):
+                    filtered_tasks.append(event)
+
+            return filtered_tasks
+        return inner
+
+
+
+
+
+'''
+class Filter:
+    @staticmethod
+    def filter(fn):
+        def inner(obj):
+
+            def custom_filter(event):
+
+                min_val = obj.filter_config['duration']['min']
+                max_val = obj.filter_config['duration']['max']
+
+                value = getattr(event, list(obj.filter_config.keys())[0])
+                min_val = value if min_val is None else min_val
+                max_val = value if max_val is None else max_val
+
+                return min_val <= value <= max_val
+
+            result = filter(custom_filter, fn(obj))
+            return result
+        return inner
+'''
+
+
+'''
 class Filter:
     @staticmethod
     def filter(fn):
@@ -21,7 +77,7 @@ class Filter:
 
                 try:
                     item = datetime.strptime(value[0], "%d/%m/%y  %H:%M")
-                except:
+                except Exception:
                     item = value[0]
 
                 if iteration == 0:
@@ -54,7 +110,7 @@ class Filter:
             return final_result[-1]
 
         return inner
-
+'''
 
 '''
 class Filter:

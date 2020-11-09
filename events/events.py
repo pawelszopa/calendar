@@ -7,11 +7,13 @@ class Events:
     def __init__(self):
         self._events = []
         self.sort_config = []
-        self.filter_config = []
+        self.filter_config = {}
 
     def add_event(self, event):
         self._events.append(event)
 
+    @Sort.sort
+    @Filter.filter
     def get_events(self):
         return self._events
 
@@ -31,15 +33,9 @@ class Events:
 
     def update_event(self, idx, config):
         event = self.get_event(idx)
-        for item in range(len(config)):
-            if event:
+        if event:
+            for item in range(len(config)):
                 key = [*config][item]  # list(config.keys())[0]
                 setattr(event, key, config[key])
 
-    @Sort.sort
-    def sort_events(self):
-        return self._events
 
-    @Filter.filter
-    def filter_events(self):
-        return self._events
