@@ -35,6 +35,6 @@ CRUD
 SOLID (solidne)
 - S - single responsibility (classa robi jedna rzecz) 
 - O - open closed (otwarta na roz, zamknieta na modyfikacje)
-- I - interface segregation (odseparowanie logiki od szczegółu implementacyjnego)
+- I - interface segregation (odseparowanie logiki od szczegółu implementacyjnego) klasy abstakcyjne
 - L - liskov substitution (klasy dziedziczace mają zachowywac sie jak rodzic duck typing )
 - D - dependency inversion (odwrocenie zaleznosci - klasa bazowa nei moze zlalezec od dziedziczacych)
