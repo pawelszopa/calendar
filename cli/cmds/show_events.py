@@ -5,4 +5,6 @@ class ShowEvents(AbsCommand):
     name = 'Show Events'
 
     def execute(self):
-        print("it works, events")
+        for event in self.events.get_events():
+            print(event)
+
