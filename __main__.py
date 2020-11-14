@@ -1,26 +1,21 @@
 from cli.cli import Cli
+from cli.cmds.clear_filter_config import ClearFilterConfig
+from cli.cmds.clear_sort_config import ClearSortConfig
 from cli.cmds.create_event import CreateEvent
+from cli.cmds.delete_event import DeleteEvent
+from cli.cmds.filter_events import FilterEvents
+from cli.cmds.show_event import ShowEvent
 from cli.cmds.show_events import ShowEvents
-from events import Events
+from cli.cmds.sort_events import SortEvents
+from cli.cmds.update_event import UpdateEvent
 
-
-cmds = (CreateEvent, ShowEvents)
+cmds = (CreateEvent, ShowEvent, ShowEvents, UpdateEvent, SortEvents,
+        FilterEvents, ClearSortConfig, ClearFilterConfig, DeleteEvent)
 cli = Cli(cmds)
 
 cli.run()
 
-
-
-
-
-
-
-
-
-
-
-
-
+'''
 from datetime import datetime
 from events import Events
 from user import User
@@ -58,15 +53,17 @@ from random import randint
 #for event in events.get_events():
 #    print(event)
 #print(len(list(events.get_events())))
-'''
+
 for event in events.filter_events():
     print(events.filter_config)
     for item in event:
         print(item)
-'''
+
 
 # events.filter_config = [{'duration':(30,"<")}]
 # for event in events.filter_events():
 #     print(event)
 
 #  cli.get_user_command()
+
+'''
