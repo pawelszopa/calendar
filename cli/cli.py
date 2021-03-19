@@ -10,7 +10,7 @@ class Cli:
 
     def parse_command(self, cmd):
         cmds = self.get_commands()
-        command = cmds.setdefault(cmd, NoCommand)  # zwraca wartosc po kluczu jezeli istenie to wtedy zwraca no command
+        command = cmds.setdefault(cmd, NoCommand)
         return command(cmd)
 
     def get_user_command(self):

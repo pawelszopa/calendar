@@ -3,7 +3,6 @@ from cli.cmds.abs_command import AbsCommand
 from event import Event
 
 
-
 class CreateEvent(AbsCommand):
     name = 'Create Task'
 

@@ -6,7 +6,7 @@ class UpdateEvent(AbsCommand):
     name = 'Update Event'
 
     def execute(self):
-        event = int(input("ktore id?"))
+        event = int(input("Which ID?"))
         config = config_update()
 
         self.events.update_event(event, config)

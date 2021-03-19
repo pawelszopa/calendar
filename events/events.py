@@ -1,4 +1,3 @@
-# TODO add filter functionality use decorator (multipy) chce od daty do daty trwajace 30 min
 from filtering import Filter
 from sorting import Sort
 
@@ -35,7 +34,5 @@ class Events:
         event = self.get_event(idx)
         if event:
             for item in range(len(config)):
-                key = [*config][item]  # list(config.keys())[0]
+                key = [*config][item]
                 setattr(event, key, config[key])
-
-

@@ -7,4 +7,3 @@ class ShowEvents(AbsCommand):
     def execute(self):
         for event in self.events.get_events():
             print(event)
-

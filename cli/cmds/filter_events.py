@@ -7,5 +7,3 @@ class FilterEvents(AbsCommand):
 
     def execute(self):
         self.events.filter_config = config_filter()
-
-

@@ -6,4 +6,3 @@ class ClearSortConfig(AbsCommand):
 
     def execute(self):
         self.events.sort_config = []
-1

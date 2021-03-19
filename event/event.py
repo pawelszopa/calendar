@@ -1,4 +1,3 @@
-# TODO add suitable getters and setters start time location
 from datetime import datetime
 from helpers.helpers import uuid
 
@@ -67,4 +66,3 @@ class Event:
     def __str__(self):
         return f'class id: {self.id}, Event(name:{self.name}, start time:{self.start_time}, created:{self.created}), ' \
                f'{self.time_to_event} , duration {self._duration}'
-
